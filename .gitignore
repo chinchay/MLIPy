@@ -133,3 +133,4 @@ dmypy.json
 *.lprof
 drafts.py
 .vscode/
+work/
