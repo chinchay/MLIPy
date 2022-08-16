@@ -12,7 +12,8 @@ class TestMlipClass(unittest.TestCase):
 
     def test_load_pot(self):
         pot = MLIP.load_pot()
-        self.assertEqual( pot.head "MTP", "Potential first line is wrong" )
+        self.assertEqual( pot.format, "MTP", "Potential format, first line is wrong" )
+        self.assertEqual( pot.version, "1.1.0", "This package works with version 1.1.0" )
         self.assertGreater( pot.species_count, 0, "`species_count` should be positive" )
         self.assertGreater( pot.min_dist, 0.4, "`mind_dist` is less than 0.4 Angstrom" )
         self.assertGreater( pot.max_dist, 1.0, "`max_dist` might be too short"  )
