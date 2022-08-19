@@ -74,3 +74,23 @@ def get_alpha_index_times_count(lines, iline):
 def get_alpha_scalar_moments(lines, iline):
     return int(get_parameter(lines, iline + 5))
 
+def get_vector(lines, iline):
+    string = get_parameter(lines, iline).replace("{", "[").replace("}", "]")
+    return np.asarray( eval( string ) )
+
+def get_alpha_index_basic(lines, iline):
+    return get_vector(lines, iline + 2)
+
+def get_alpha_index_times(lines, iline):
+    return get_vector(lines, iline + 4)
+
+def get_alpha_moment_mapping(lines, iline):
+    return get_vector(lines, iline + 6)
+
+def get_species_coeffs(lines, iline):
+    return get_vector(lines, iline + 7)
+
+def get_moment_coeffs(lines, iline):
+    return get_vector(lines, iline + 8)
+
+

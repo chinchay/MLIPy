@@ -25,5 +25,8 @@ class MLIP():
         self.alpha_index_basic_count = lib.get_alpha_index_basic_count(lines, iline)
         self.alpha_index_times_count = lib.get_alpha_index_times_count(lines, iline)
         self.alpha_scalar_moments = lib.get_alpha_scalar_moments(lines, iline)
-
-        
+        self.alpha_index_basic = lib.get_alpha_index_basic(lines, iline)
+        self.alpha_index_times = lib.get_alpha_index_times(lines, iline)
+        self.alpha_moment_mapping = lib.get_alpha_moment_mapping(lines, iline)
+        self.species_coeffs = lib.get_species_coeffs(lines, iline)
+        self.moment_coeffs = lib.get_moment_coeffs(lines, iline)
