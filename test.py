@@ -60,6 +60,20 @@ class TestMlipClass(unittest.TestCase):
 
         self.assertGreater( mlip.alpha_scalar_moments, 0,
                         "`alpha_scalar_moments` should be positive" )
+
+        self.assertEqual( mlip.alpha_index_basic.shape[0],
+                        mlip.alpha_index_basic_count,
+                        "alpha_index_basic.shape != alpha_index_basic_count ?")
+
+        self.assertEqual( mlip.alpha_index_times.shape[0],
+                        mlip.alpha_index_times_count,
+                        "alpha_index_times.shape != alpha_index_times_count ?")
+        
+        self.assertEqual( len(mlip.species_coeffs), mlip.species_count,
+                        "len(mlip.species_coeffs) != mlip.species_count ?")
+
+        self.assertEqual( len(mlip.moment_coeffs), mlip.alpha_scalar_moments,
+                        "len(moment_coeffs) != alpha_scalar_moments ?")    
     #
 
 if __name__ == "main":
