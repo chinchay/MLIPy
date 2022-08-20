@@ -35,6 +35,9 @@ def get_radial_basis_size(lines):
 def get_radial_funcs_count(lines):
     return int(get_parameter(lines, 10))
 
+def brackets_to_array(string):
+    return np.asarray( eval( string.replace("{", "[").replace("}", "]") ) )
+
 def get_regression_coeffs(
                         lines,
                         species_count,
@@ -53,10 +56,9 @@ def get_regression_coeffs(
         for s2 in range(species_count):
             iline += 1
             for i in range(radial_funcs_count):
-                list_t = lines[iline].strip( '\t\{\}\n' ).split(',')
+                arr = brackets_to_array( lines[iline] )
+                regression_coeffs[s1, s2, i, :] = arr
                 iline += 1
-                for j in range(radial_basis_size):
-                    regression_coeffs[s1, s2, i, j] = float( list_t[j] )
     #
     return regression_coeffs, iline
 #
@@ -74,23 +76,22 @@ def get_alpha_index_times_count(lines, iline):
 def get_alpha_scalar_moments(lines, iline):
     return int(get_parameter(lines, iline + 5))
 
-def get_vector(lines, iline):
-    string = get_parameter(lines, iline).replace("{", "[").replace("}", "]")
-    return np.asarray( eval( string ) )
+def get_array(lines, iline):
+    return brackets_to_array( get_parameter(lines, iline) )
 
 def get_alpha_index_basic(lines, iline):
-    return get_vector(lines, iline + 2)
+    return get_array(lines, iline + 2)
 
 def get_alpha_index_times(lines, iline):
-    return get_vector(lines, iline + 4)
+    return get_array(lines, iline + 4)
 
 def get_alpha_moment_mapping(lines, iline):
-    return get_vector(lines, iline + 6)
+    return get_array(lines, iline + 6)
 
 def get_species_coeffs(lines, iline):
-    return get_vector(lines, iline + 7)
+    return get_array(lines, iline + 7)
 
 def get_moment_coeffs(lines, iline):
-    return get_vector(lines, iline + 8)
+    return get_array(lines, iline + 8)
 
 
