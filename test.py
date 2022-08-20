@@ -49,30 +49,30 @@ class TestMlipClass(unittest.TestCase):
         self.assertEqual( mlip.regression_coeffs.shape[0], mlip.species_count,
                         "regression_coeffs[0] & species_count")
 
-        self.assertGreater( mlip.alpha_moments_count , 0,
+        self.assertGreater( mlip.moments_count , 0,
                         "`alpha_moments_count` should be positive" )
 
-        self.assertGreater( mlip.alpha_index_basic_count, 0,
+        self.assertGreater( mlip.index_basic_count, 0,
                         "`alpha_index_basic_count` should be positive" )
 
-        self.assertGreater( mlip.alpha_index_times_count, 0,
+        self.assertGreater( mlip.index_times_count, 0,
                         "`alpha_index_times_count` should be positive" )
 
-        self.assertGreater( mlip.alpha_scalar_moments, 0,
+        self.assertGreater( mlip.scalar_moments, 0,
                         "`alpha_scalar_moments` should be positive" )
 
-        self.assertEqual( mlip.alpha_index_basic.shape[0],
-                        mlip.alpha_index_basic_count,
+        self.assertEqual( mlip.index_basic.shape[0],
+                        mlip.index_basic_count,
                         "alpha_index_basic.shape != alpha_index_basic_count ?")
 
-        self.assertEqual( mlip.alpha_index_times.shape[0],
-                        mlip.alpha_index_times_count,
+        self.assertEqual( mlip.index_times.shape[0],
+                        mlip.index_times_count,
                         "alpha_index_times.shape != alpha_index_times_count ?")
         
         self.assertEqual( len(mlip.species_coeffs), mlip.species_count,
                         "len(mlip.species_coeffs) != mlip.species_count ?")
 
-        self.assertEqual( len(mlip.moment_coeffs), mlip.alpha_scalar_moments,
+        self.assertEqual( len(mlip.moment_coeffs), mlip.scalar_moments,
                         "len(moment_coeffs) != alpha_scalar_moments ?")    
     #
 
