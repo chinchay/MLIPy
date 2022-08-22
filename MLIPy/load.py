@@ -133,6 +133,7 @@ def get_regression_coeffs(
 
     Returns:
         radial_coeffs (numpy array): radial_coeffs values
+        iline (int) : cursor current position
     """
     regression_coeffs = np.zeros( ( species_count,
                                     species_count,

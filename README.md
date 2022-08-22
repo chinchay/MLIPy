@@ -5,7 +5,21 @@ The package helps to load the predictor method of the MLIP code (**M**achine **L
 
 ## Quick start
 
+```ShellSession
+git clone https://github.com/chinchay/MLIPy.git
+```
+
 ## What's included
+
+
+```python
+from MLIPy import MLIP
+from MLIPy import library as lib
+
+mlip = MLIP()
+mlip.load_pot()
+
+```
 
 ## Under development
 
