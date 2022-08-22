@@ -7,6 +7,11 @@ class MLIP():
         pass
 
     def load_pot(self, filename="work/pot.mtp"):
+        """Load potential file
+
+        Args:
+            filename (str, optional): File containing the MTP parameters saved from a previous trianing. Defaults to "work/pot.mtp".
+        """
         lines                   = load.get_lines_file(filename)
         self.format             = load.get_format(lines)
         self.version            = load.get_version(lines)
